@@ -1,0 +1,21 @@
+.main {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Roboto';
+}
+
+#tooltip {
+  background-color: lightgrey;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.bar {
+  fill: navy;
+}
+
+.bar:hover {
+  fill: aqua;
+}
