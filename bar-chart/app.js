@@ -85,32 +85,26 @@ const render = async (dataSeries) => {
     .attr('class', 'bar');
 
   // create tooltip
-  const tooltip = svg
-    .append('text')
+  const tooltip = d3
+    .select('body')
+    .append('div')
+    .attr('class', 'tooltip')
     .attr('id', 'tooltip')
-    .style('opacity', 0)
-    .style('position', 'absolute');
-
-  // first line of the tooltip
-  const tooltipLineOne = tooltip.append('tspan');
-
-  // second line of the tooltip
-  const tooltipLineTwo = tooltip.append('tspan').attr('dy', '1em');
+    .style('opacity', 0);
 
   // show tooltip on mouseover and hide on mouseout
   bars
     .on('mouseover', (event, d) => {
-      const x = xScale(d.date) + 'px';
-      const y = yScale(d.gdp) - padding + 'px';
-
-      tooltipLineOne.attr('x', x).text(getTooltipDateLabel(d.date));
-      tooltipLineTwo.attr('x', x).text(getTooltipGDPLabel(d.gdp));
+      let html = `
+      <p>${getTooltipDateLabel(d.date)}</p>
+      <p>${getTooltipGDPLabel(d.gdp)}</p>`;
 
       tooltip
         .style('opacity', 1)
-        .attr('data-date', d.date)
-        .attr('x', x)
-        .attr('y', y);
+        .attr('data-year', d.Year)
+        .style('left', `${event.pageX}px`)
+        .style('top', `${event.pageY - 28}px`)
+        .html(html);
     })
     .on('mouseout', () => {
       tooltip.style('opacity', 0);
