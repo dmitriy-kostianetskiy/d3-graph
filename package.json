@@ -1,0 +1,15 @@
+{
+  "name": "d3-graph",
+  "version": "1.0.0",
+  "repository": "https://github.com/dmitriy-kostianetskiy/d3-graph.git",
+  "author": "Dmitriy Kostyanetskiy (Arcadia) <dmitriy.kostyanetskiy@arcadia.spb.ru>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@tsconfig/recommended": "^1.0.1",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "@types/d3": "^7.4.0"
+  }
+}

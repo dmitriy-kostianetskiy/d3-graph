@@ -16,7 +16,7 @@ const loadDataSeries = async () => {
 };
 
 const render = async (dataSeries) => {
-  const barWidth = w / dataSeries.length;
+  const barWidth = graphWidth / dataSeries.length;
 
   // create xAxis
   const xScale = d3.scaleLinear();
@@ -24,7 +24,7 @@ const render = async (dataSeries) => {
     d3.min(dataSeries, (d) => d.Year) - 1,
     d3.max(dataSeries, (d) => d.Year) + 1,
   ]);
-  xScale.range([padding, w - padding]);
+  xScale.range([padding, graphWidth - padding]);
 
   // create yAxis
   const yScale = d3.scaleLinear();
@@ -32,7 +32,7 @@ const render = async (dataSeries) => {
     d3.min(dataSeries, (d) => d.time),
     d3.max(dataSeries, (d) => d.time),
   ]);
-  yScale.range([padding, h - padding]);
+  yScale.range([padding, graphHeight - padding]);
 
   // create SVG
   const svg = d3
@@ -92,27 +92,27 @@ const render = async (dataSeries) => {
     .append('rect')
     .attr('width', 18)
     .attr('height', 18)
-    .attr('x', w - 300 - 20)
-    .attr('y', h / 2 - 55)
+    .attr('x', graphWidth - 300 - 20)
+    .attr('y', graphHeight / 2 - 55)
     .attr('fill', 'rgb(255, 127, 14)');
 
   legend
     .append('rect')
     .attr('width', 18)
     .attr('height', 18)
-    .attr('x', w - 300 - 20)
-    .attr('y', h / 2 - 35)
+    .attr('x', graphWidth - 300 - 20)
+    .attr('y', graphHeight / 2 - 35)
     .attr('fill', 'rgb(31, 119, 180)');
 
   legend
     .append('text')
-    .attr('x', w - 300)
-    .attr('y', h / 2 - 40)
+    .attr('x', graphWidth - 300)
+    .attr('y', graphHeight / 2 - 40)
     .text('No doping allegations');
   legend
     .append('text')
-    .attr('x', w - 300)
-    .attr('y', h / 2 - 20)
+    .attr('x', graphWidth - 300)
+    .attr('y', graphHeight / 2 - 20)
     .text('Riders with doping allegations');
 
   // create X-axis
@@ -120,7 +120,7 @@ const render = async (dataSeries) => {
 
   svg
     .append('g')
-    .attr('transform', `translate(0, ${h - padding})`)
+    .attr('transform', `translate(0, ${graphHeight - padding})`)
     .attr('id', 'x-axis')
     .call(xAxis);
 
