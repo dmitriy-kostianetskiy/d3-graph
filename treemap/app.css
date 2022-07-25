@@ -1,0 +1,23 @@
+.main {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Roboto';
+}
+
+.tooltip {
+  position: absolute;
+
+  padding: 10px;
+  font: 12px sans-serif;
+  background: lightsteelblue;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.tile-text {
+  font: 10px sans-serif;
+  cursor: pointer;
+}
