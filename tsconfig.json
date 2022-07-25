@@ -2,7 +2,9 @@
     "extends": "@tsconfig/recommended/tsconfig.json",
     "include": ["**/*.ts"],
     "compilerOptions": {
-        "types": ["d3"]
+        "types": ["d3", "topojson"],
+        "noImplicitAny": false,
+        "sourceMap": true,
     },
     "exclude": ["node_modules"]
 }
